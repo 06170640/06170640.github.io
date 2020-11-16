@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<meta charset="utf-8" />   
+<title> G08-動物主網站.html </title>
+</head>
+    
+<style>
+
+
+.Header{/*至頂圖*/  
+width:auto;  /*寬度自動*/
+height:400px; /*圖片的高度*/
+padding-top:9px; /*內具設定為9像素*/
+background-image:url("./圖片/forest.jpg");/*圖片網址*/
+background-size:100% 100%;}/*圖片大小*/
+
+.body{
+font-size:32px;}
+
+/*隱藏按鈕*/
+ul {
+list-style: none;/**/
+margin: 50px auto;/**/
+display: inline-block; /* display inline 的屬性是用來定義元素在同一行呈現*/
+margin-left: 100px;/**/
+        }
+        
+ul li {
+display: inline-block;
+float: left;}
+           
+.img {cursor: pointer;}/*如果光標滑過變成手指型*/
+        
+input[type="radio"]{display: none;}  /*如果type為radio(選擇區塊)就執行 {display: none;} "將區塊隱藏"*/
+        
+.cont {display: none;}/*隱藏下方資訊*/
+        
+input[type="radio"]:checked+.cont {display: block;}} 
+	/*如果type為radio(選擇區塊)就執行 checked+.cont {display: block;}  checked是偽類選擇器表示任何處於選中狀態的典籍按鈕後
+	      加上.cont {display: block;} 將下方資訊顯示出來 block :標準的區塊元素*/
+
+</style>
+
+</head>
+
+
+
+
+<div class="Header">
+<center> <img src="./圖片/badge.png" width="350px"></center> 
+</div>
+
+
+
+<body>
+  
+  <!--跑馬燈---->
+ <div >  <!--跑馬燈速度--> <!--跑馬燈左右來回-->  <!--跑馬燈滑鼠移過去 停止-->  <!--跑馬燈滑鼠移開 繼續-->  <!--跑馬燈滑向右跑-->  <!--與上方的區塊隔10PX-->
+   <marquee scrollamount="25" behavior="alternate"  onMouseOver="this.stop()"    onMouseOut="this.start()" DIRECTION="RIGHT"        VSPACE="10"> 
+<img src="./圖片/圖片/大象.jpg"width="200" height="200">  <!--放置圖片-->
+<img src="./圖片/圖片/羊駝.jpg"width="200" height="200">
+<img src="./圖片/圖片/單峰駱駝.jpg"width="200" height="200">
+<img src="./圖片/圖片/獅子.jpg"width="200" height="200">
+<img src="./圖片/圖片/紅毛猩猩.jpg"width="200" height="200">
+<img src="./圖片/圖片/馬來貘.jpg"width="200" height="200">
+<img src="./圖片/圖片/熊貓.jpg"width="200" height="200">
+<img src="./圖片/圖片/長鬃山羊.jpg"width="200" height="200">
+<img src="./圖片/圖片/長頸鹿.jpg"width="200" height="200">
+<img src="./圖片/圖片/水豚.jpg"width="200" height="200">
+<img src="./圖片/圖片/翡翠樹蛙.jpg"width="200" height="200">
+<img src="./圖片/圖片/梅花鹿.jpg"width="200" height="200">
+<img src="./圖片/圖片/穿山甲.jpg"width="200" height="200">
+<img src="./圖片/圖片/石虎.jpg"width="200" height="200">
+<img src="./圖片/圖片/白犀牛.jpg"width="200" height="200">
+<img src="./圖片/圖片/狐獴.jpg"width="200" height="200">
+<img src="./圖片/圖片/黑頸冠鶴.jpg"width="200" height="200">
+<img src="./圖片/圖片/雲豹.jpg"width="200" height="200">
+<img src="./圖片/圖片/迷你馬.jpg"width="200" height="200">
+<img src="./圖片/圖片/蜥蜴.jpg"width="200" height="200">
+<img src="./圖片/圖片/藍鵲.jpg"width="200" height="200">
+<img src="./圖片/圖片/藍孔雀.jpg"width="200" height="200">
+<img src="./圖片/圖片/絨鼠.jpg"width="200" height="200">
+<img src="./圖片/圖片/竹雞.jpg"width="200" height="200">
+<img src="./圖片/圖片/烏鴉鳳蝶.jpg"width="200" height="200">
+<img src="./圖片/圖片/沼林袋鼠.jpg"width="200" height="200">
+<img src="./圖片/圖片/小爪水獺.jpg"width="200" height="200">
+<img src="./圖片/圖片/大嘴鳥.jpg"width="200" height="200">
+<img src="./圖片/圖片/國王企鵝.jpg"width="200" height="200">
+<img src="./圖片/圖片/台灣黑熊.jpg"width="200" height="200">
+<img src="./圖片/圖片/台灣野豬.jpg"width="200" height="200">
+<img src="./圖片/圖片/台灣獼猴.jpg"width="200" height="200">
+<img src="./圖片/圖片/印度星龜.jpg"width="200" height="200">
+<img src="./圖片/圖片/八哥.jpg"width="200" height="200">
+<img src="./圖片/圖片/Raccoon.jpg"width="200" height="200">
+<img src="./圖片/圖片/鸚鵡.jpg"width="200" height="200">
+</marquee>  
+</div>
+</body>   
+
+<!--資訊的選項按鈕-->
+<center> <div>
+
+
+   <ul><!--label設定隱藏標籤，再用for設每個選單的圖示的屬性為cont 就可以用id去連動相同標籤，title為滑鼠移到圖片後會顯示的標題 圖示的寬度為70-->
+    <label for="cont_01"><img src="./圖片/animal.png"  title="園區動物介紹" width="70"  class="img" id="img_01"/></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="cont_02"><img src="./圖片/car.png"  title="交通" width="70" class="img" id="img_02"/></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="cont_03"><img src="./圖片/map.png"  title="園區地圖" width="73" class="img" id="img_03"/></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="cont_04"><a href="message_board.php "  target="_blank"><img src="./圖片/conversation.png"   title="留言板" width="90" class="img" id="img_04"/></a></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="cont_05"><a href="G08report.html"  target="_blank"><img src="./圖片/Code.png"  title="第八組的書面報告" width="73" class="img" id="img_0"/></a></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+   </ul>
+</div>   </center>
+   
+
+
+<!--1.圈動物資訊-->  
+<input type="radio" name="cont" id="cont_01"/>
+<div class="cont">
+
+<center> <font size="8" face="微軟正黑體 "> <b> 點選圖片進入 </b>  </font> </center>	 
+
+<center><a href="http://120.125.73.101/~06171014/G08/Menu.php" target="_blank"><img src="./圖片/fox.png" width="500" class="img"  id="img_02"/> </a></center> </div>
+
+
+
+
+<!--2.交通--> 
+<input type="radio" name="cont" id="cont_02"/>
+<div class="cont">
+
+<center> <font size="8" face="微軟正黑體 "> <b> 交通路線 </b> </font> </center>	 
+
+  <center> 
+  <table width="900" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="white">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:24px;"> <font size="4.5" face="微軟正黑體 "> <b> 臺北<br>捷運 </b> </font> </td>
+
+　<td style="text-align: left; line-height:36px; vertical-align: middle; font-size:16px;"> 
+  <font size="3" face="微軟正黑體 "> <b>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搭乘文湖線，在動物園站下車 <br> 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搭乘板南線，在市政府站下車，再轉乘綠1、棕18或棕21公車公共汽車 <br> 
+  </font> </b>
+  </td> 
+　</tr>
+
+  <tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:24px;"> <font size="4.5" face="微軟正黑體 "> <b> 公共<br>汽車 </b> </font> </td>
+
+　<td style="text-align: left; line-height:36px; vertical-align: middle; font-size:16px;"> 
+  <font size="3" face="微軟正黑體 "> <b>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搭乘236(含區間車)、237、282(含副線)、294、295、611、676、679、793、933、小12、棕3、<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;棕6、棕11(含副線)、棕15(含區間車)、棕18、棕21、綠1、2001、2003及1558等路線，<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在捷運動物園站下車 
+  </font> </b>
+  </td>
+　</tr> 
+
+　<tr bgcolor="white">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:24px;"> <font size="4.5" face="微軟正黑體 "> <b> 自<br>用<br>車 </b> </font> </td>
+　<td style="text-align: left; line-height:36px; vertical-align: middle; font-size:16px;"> 
+  <font size="3" face="微軟正黑體 "> <b>
+  <ul type="disc"> <li>臺北(1)：辛亥路 → 國道3號臺北聯絡道 → 萬芳交流道(往木柵方向) → 左轉木柵路 → 右轉萬福橋 → 右轉新光路 </li> </ul> <br> 
+  <ul type="disc"> <li>臺北(2)：信義路 → 信義快速道路 → 萬芳交流道(往木柵方向) → 左轉木柵路 → 右轉萬福橋 → 右轉新光路 </li> </ul> <br> 
+  <ul type="disc"> <li>臺北(3)：和平東路 → 莊敬隧道 → 軍功路下坡到底 → 左轉木柵路 → 右轉萬福橋 → 右轉新光路 </li> </ul> <br> 
+  <ul type="disc"> <li>臺北(4)：南深公路 → 深坑→ 至深坑後右轉順行 → 進入木柵路即左轉萬福橋 → 右轉新光路 </li> </ul> <br> 
+  <ul type="disc"> <li>臺北(5)：新店寶橋路 → 寶僑 → 直行木新路 → 至秀明路右轉萬壽橋 → 左轉新光路 </li> </ul> <br> 
+  <ul type="disc"> <li>國道1號中山高速公路：建國北路高架道 → 下辛亥路左轉 → 國道3號臺北聯絡道 → 萬芳交流道(往木柵方向) → 左轉木柵路 → 右轉萬福橋 → 右轉新光路 </li> </ul> <br> 
+  <ul type="disc"> <li>國道3號北部第二高速公路：木柵交流道 → 國道3號臺北聯絡道 → 萬芳交流道(往木柵方向) → 左轉木柵路 → 右轉萬福橋 → 右轉新光路 </li> </ul> <br> 
+  <ul type="disc"> <li>國道3號北部第二高速公路：木柵交流道 → 左轉新光路三段 </li> </ul> <br>
+ </b>
+  </font>
+  </td>
+　</tr>
+　<tr bgcolor="#F5F5F5">
+　  <td style="text-align: center; line-height:36px; vertical-align: middle; font-size:24px;"> <font size="4.5" face="微軟正黑體 "> <b> 週邊<br>停車<br>格數 <br> 
+　  　<td style="text-align: left; line-height:36px; vertical-align: middle; font-size:16px;"> <b>
+  <ul type="disc"> <li>河川地停車場 (含新光路2段路邊):990 </li></ul><br> 
+  <ul type="disc"> <li>動物園站地下停車場:200 </li></ul><br> 
+  <ul type="disc"> <li>捷運木柵機廠停車場:683 </li></ul><br> 
+  <ul type="disc"> <li>木柵站轉乘停車場:160 </li></ul><br> 
+  <ul type="disc"> <li>萬興國小地下停車場:234 </b>   </ul> <br> </b></font> </td>
+　</tr>
+  </table> 
+  </center>
+</div> 
+      
+
+<!--3.園區地圖-->
+<input type="radio" name="cont" id="cont_03"/>
+<div class="cont">
+<center> <font size="8" face="微軟正黑體">  <b> 園區地圖 </b>  </font> </center> <br>
+
+
+<center><table width="1000" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+
+
+<center><img width="1500" height="1800"  src="./圖片/zoomap.jpg"></center>
+
+
+　
+　
+
+
+<tr  bgcolor="white">
+<td  bgcolor="#F5F5F5"  style="text-align: center;"><font size="6" face="微軟正黑體" > 地圖 </font></td>  
+
+<td>      <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E6%BA%AB%E5%B8%B6%E5%8B%95%E7%89%A9%E5%8D%80/@25.0081762,121.2950857,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa8e91638dab:0xad86a4919561c0c1!2m2!1d121.5902719!2d24.9927705" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/溫帶動物區1.png"> </center>  </td>
+　
+　
+　
+<td>      <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E4%BC%81%E9%B5%9D%E9%A4%A8/@25.0081762,121.2950857,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa8e85f198fd:0x66c49778e8bdb71f!2m2!1d121.5907347!2d24.9930636" target="_blank"> 
+         <center><img width="300" height="300"   src="./圖片/企鵝館2.png"></center>  </td>
+　
+
+<td>       <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E6%BA%AB%E5%B8%B6%E5%8B%95%E7%89%A9%E5%8D%80/@25.0081762,121.2950857,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa8e91638dab:0xad86a4919561c0c1!2m2!1d121.5902719!2d24.9927705" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/非洲動物區1.png"></center>  </td>
+
+
+<td>      <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E7%84%A1%E5%B0%BE%E7%86%8A%E9%A4%A8/@25.0081762,121.2950857,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa61d4d941e3:0xfed18b4810aa6630!2m2!1d121.582712!2d24.9982043" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/兩棲爬蟲動物館1.png"> </center>  </td>      
+　</tr>　　
+　
+
+
+
+
+
+
+
+
+<tr>
+<td bgcolor="#F5F5F5" style="text-align: center; line-height:36px; vertical-align: middle;"><font size="6" face="微軟正黑體" >區域  </font></td>
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 溫帶動物區</font></center> </td>
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 企鵝館</font></center> </td>
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 非洲動物區</font></center> </td>
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 兩棲爬蟲動物館</font></center> </td>
+</tr>
+
+
+
+<tr>
+<td  bgcolor="#DDDDDD"  style="text-align: center;"><font size="6" face="微軟正黑體" > 地圖 </font></td> 
+
+<td>        <a href="https://www.google.com/maps/dir//%E5%8F%B0%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E9%B3%A5%E5%9C%92%E5%9C%B0%E5%9C%96/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3442aa8c4274914d:0x7c222f0a26d6a790?sa=X&ved=2ahUKEwjF65Dlh67mAhXuG6YKHaTRCxYQ9RcwAHoECAEQCQ" target="_blank"> 
+      <center><img width="250" height="300"  src="./圖片/鳥園1.png"></center>   </td>  
+  
+  
+<td>        <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E7%84%A1%E5%B0%BE%E7%86%8A%E9%A4%A8/@25.0081762,121.2950857,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa61d4d941e3:0xfed18b4810aa6630!2m2!1d121.582712!2d24.9982043" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/無尾熊館1.png"></center>  </td>
+      
+      
+      
+<td>      <a href="https://www.google.com/maps/dir//%E5%8F%B0%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E6%BE%B3%E6%B4%B2%E5%8B%95%E7%89%A9%E5%8D%80/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3442aa8be32742d1:0x31d597673d1d494f?sa=X&ved=2ahUKEwjhqN-Zi67mAhUQwosBHREDD1gQ9RcwAHoECAEQCQ" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/澳洲動物區1.png"></center>  </td>
+      
+      
+<td>      <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E4%BA%9E%E6%B4%B2%E7%86%B1%E5%B8%B6%E9%9B%A8%E6%9E%97%E5%8D%80+116%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B530%E8%99%9F/@24.9993619,121.3080479,10.52z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa8a120325e3:0xf962f1bd32905d31!2m2!1d121.583044!2d24.9962044" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/熱帶雨林區1.png"></center>  </td>      
+  
+</tr>
+
+　
+
+<tr>
+<td bgcolor="#DDDDDD" style="text-align: center; line-height:36px; vertical-align: middle;"><font size="6" face="微軟正黑體" >區域  </font></td>  
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 鳥園</font></center> </td>  
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 無尾熊館</font></center> </td>  
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 澳洲動物區</font></center> </td>  
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 熱帶雨林區</font></center> </td>  
+</tr>
+
+
+
+
+<tr>
+<td  bgcolor="#F5F5F5"  style="text-align: center;"><font size="6" face="微軟正黑體" > 地圖 </font></td>  
+
+<td>      <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E5%A4%A7%E8%B2%93%E7%86%8A%E9%A4%A8+116%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B530%E8%99%9F/@25.008602,121.155321,10z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa8a70c14509:0x41fb268672e73bb5!2m2!1d121.5830906!2d24.9973264" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/熊貓館1.png"></center>  </td>  
+  
+  
+<td>       <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E5%85%92%E7%AB%A5%E5%8B%95%E7%89%A9%E5%8D%80/@25.0081762,121.2950857,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa6021aafcc9:0x950d7e6460722cf9!2m2!1d121.5822953!2d24.9988803" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/兒童動物區1.png"></center>  </td>
+      
+      
+      
+<td>       <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E6%B2%99%E6%BC%A0%E5%8B%95%E7%89%A9%E5%8D%80/@25.008602,121.155321,10z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa8bd4eb749d:0x9de41343ebf027d8!2m2!1d121.585453!2d24.9950044" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/沙漠動物區1.png"></center>  </td>      
+      
+      
+      
+<td>      <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E5%8F%B0%E7%81%A3%E5%8E%9F%E7%94%9F%E5%8B%95%E7%89%A9%E5%8D%80/@25.0081762,121.2950857,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa61a524a64d:0xc0b66051f506cb7!2m2!1d121.5804576!2d24.997919" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/臺灣動物區1.png"></center>  </td>      
+      
+</tr>
+
+
+
+
+
+<tr>
+<td bgcolor="#F5F5F5" style="text-align: center; line-height:36px; vertical-align: middle;"><font size="6" face="微軟正黑體" >區域  </font></td>  
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 熊貓館</font></center> </td>
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 兒童動物區</font></center> </td>
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 沙漠動物區</font></center> </td>
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 臺灣動物區</font></center> </td>
+</tr>
+
+
+
+
+<tr>
+<td  bgcolor="#DDDDDD"  style="text-align: center;"><font size="6" face="微軟正黑體" > 地圖 </font></td>  
+
+<td>      <a href="https://www.google.com/maps/dir/25.0413056,121.294848/%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B5%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92%E6%98%86%E8%9F%B2%E9%A4%A8/@25.0081765,121.295433,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3442aa618558a06d:0x70e46bf07fe47558!2m2!1d121.5805239!2d24.9966476" target="_blank"> 
+      <center><img width="300" height="300"  src="./圖片/昆蟲館1.png"></center>  </td>
+</tr>
+
+
+　
+
+<tr>
+<td bgcolor="#DDDDDD" style="text-align: center; line-height:36px; vertical-align: middle;"><font size="6" face="微軟正黑體" >區域  </font></td> 
+<td> <center><font size="6" face="微軟正黑體" color="midnightblue"> 昆蟲館</font></center> </td>
+
+</tr>
+
+　
+    
+
+
+
+
+</div>
+
+</table>
+
+</html>

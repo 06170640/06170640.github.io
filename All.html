@@ -1,0 +1,796 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>報告介紹</title>
+<meta charset="utf-8"> 
+
+
+
+
+<!-----------------------------網頁架構介紹-------------------------------------->
+<div class="divbackground">
+<center><div class="c1">
+<font face="微軟正黑體" size="6"><b> 網頁架構介紹 </b></font>
+</div></center><br><br>
+</div>
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="1">網頁架構設計圖</a></div><br>
+<div class="border"><img src="./圖片/asas.jpg"width="600"></div>
+</center>
+</div>
+
+<br><br><br>
+
+<div class="divbackground">
+<br>
+<center>
+<div class="c1"><a name="2">架構說明</a></div><br>
+<div class="border"><img src="./圖片/004.jpg" width="600"></div>
+</center>
+</div>
+<!------------------------------------------------------------------------------>
+
+
+<!-----------------------------資料庫介紹-------------------------------------->
+<div class="divbackground">
+<center><div class="c1">
+<font face="微軟正黑體" size="6"><b> 資料庫介紹 </b></font>
+</div></center><br><br>
+</div>
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="3">建立資料表</a></div><br>
+<div class="border"><font size="5">
+      <b>企鵝館、兩棲爬蟲動物館、可愛動物區、昆蟲館、沙漠動物區、
+      溫帶動物區、澳洲動物區、熊貓館、熱帶雨林區、臺灣動物區、
+      非洲動物區、鳥園</b><br><br>
+      </font>  
+        
+      <font> <b> 1.從政府資料公開平台下載"臺北市立動物園_動物資料"，為CSV檔 </b> </font>
+      <br><br><img src="./圖片/government.PNG"width="600">
+      
+      <br><br>
+      
+      <font> <b> 2.按照區域分成12個資料表(檔名為該區館名稱) </b> </font>
+      <br><br><img src="./圖片/excel12 .PNG"width="600">
+      
+      <br><br>
+      
+      <font> <b> 3.因為分區導致編碼變成big-5，將12個檔案的編碼改成UTF8-BOM </b> </font>
+      <br><br><img src="./圖片/big5.PNG"width="600"> <img src="./圖片/bom.PNG"width="600">
+      
+      <br><br>
+      
+      <font> <b> 4.上傳12個檔案到資料庫 </b> </font>
+      <br><br><img src="./圖片/hit.PNG"width="600">
+      <br><br><hr size="8px" align="center" width="100%">
+      <font size="5">
+      <b> tb_account </b><br>
+      </font> <br>
+      <center><font size="4" face="monospace "> 利用php語法匯入全班學號 </font> </center>
+      <table width="600" style=" padding:20px; margin:5px 5px 5px 5px;"  cellpadding='20'> 
+          <!--border:"數字" 框的寬度   
+          margin:上 右 下 左;         
+          cellpadding 屬性可用來設計表格欄位內元素與邊框間的距離
+					屬性用來定義一個區域（例如 DIV 或 span）的外邊界距離，俗稱外距;
+          rules="all"   沒有線條。
+          groups位於行組和列組之間的線條。
+          rows	位於行之間的線條。
+          cols	位於列之間的線條。
+          all	  位於行和列之間的線條。-->	
+　        <tr bgcolor="#d6d6ad">
+　        <td colspan="2"  style="font-size:6px;align='center'">
+　        </td>   
+　        
+　        </tr> 
+　        <tr bgcolor="#F5F5F5">
+　        <td style="text-align: center; line-height:36px; vertical-align: middle; font-size:20px;"colspan="2">                  建立資料表 
+　        </td>
+　        </tr>
+　                           
+　        <tr bgcolor="white">
+　        <td style="text-align: left; line-height:36px; vertical-align: middle; font-size:20px;">  $str = "CREATE               TABLE tb_account("; <br>   
+          $str = $str."id int NOT NULL AUTO_INCREMENT PRIMARY KEY,"; <br>
+          $str = $str."username VARCHAR(10),"; <br>
+          $str = $str."passwd VARCHAR(20));"; <br>
+          echo $str.;<br>
+          $result = mysqli_query($link, $str); <br>
+          echo "資料表建立成功".;<br><br>
+          </td>
+　        <td style="text-align: left;font-size:20px;"> <font color="midnightblue"> 創建一個名為:"tb_account"資料表<br           ><br>設兩個變數<br> username(帳號) <br> passwd(密碼) </font> 
+　        </td>
+　        </tr>                  
+　        <tr bgcolor="#F5F5F5">
+　        <td style="text-align: center; line-height:36px; vertical-align: middle; font-size:20px;"colspan="2">                  新增資料 
+　        </td>
+　        <tr bgcolor="white">
+　        <td style="text-align: left; line-height:36px; vertical-align: middle; font-size:20px;colspan="2>
+          $str = "INSERT INTO tb_account (username, passwd) VALUES ";<br>
+          $user1 = "('06170020','06170020')"; <br>
+          $user2 = ",('06170045','06170045')"; <br>
+          $user3 = ",('06170063','06170063')"; <br>
+          .<BR>
+          .<BR>
+          .<BR>
+          $user45 = ",('06173083','06173083');"; <br>
+          $str = $str.$user1.$user2.$user3. ......$user45;<br>
+          echo $str.;<br>
+          </td>
+　        <td style="text-align: left;font-size:20px;"> <font color="midnightblue"> 將全班的學號輸入共45人<br><br                >把全班學號在$str變數裡面 </font> 
+　        </td>
+　        </tr>
+　        <tr bgcolor="#F5F5F5">
+　        <td style="text-align: center; line-height:36px; vertical-align: middle; font-size:20px;"colspan="2">                  使用函數查詢 
+　        </td>
+　        </tr>
+　        <tr bgcolor="white">
+　        <td style="text-align: left; line-height:36px; vertical-align: middle; font-size:20px;">  
+          $result = mysqli_query($link, $str);<br>   echo "帳密建立完畢".;;<br>
+          </td>
+　        <td style="text-align: left;font-size:20px;"> <font color="midnightblue">連接資料庫並將資料匯入<BR></font>             </td>
+　        </tr>
+        </center></table>	
+<hr size="8px" align="center" width="100%">
+
+      <font size="5">
+      <b>board</b><br><br>
+      </font>  
+
+      <font> 直接在資料庫裡新增一個資料表 </font>
+      <br><br><img src="./圖片/BO1.PNG" width="600">   </div>
+</center>
+</div>
+
+<br><br><br>
+
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="4">資料表</a></div><br>
+<div class="border"><font>
+      <b>我們資料表總共有14個</b><br>
+      </font> <br><img src="./圖片/yoyoyo.PNG"width="600"></div>
+</center>
+</div>
+
+
+
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="5">資料表用途</a></div><br>
+<div class="border">      <font size="5">
+      <b>tb_account</b><br><br>
+      </font>
+      
+      <font>
+      我們將全班的學號上傳，資料表名稱為tb_account，
+      帳號及密碼都相同，作為最一開始的登入帳密
+      </font> <br><br>
+      
+      <img src="./圖片/資料表tb.JPG"width="600"> 
+      
+      <br><br><hr size="8px" align="center" width="100%"><br>
+      
+      <font size="5">
+      <b>企鵝館、兩棲爬蟲動物館、可愛動物區、昆蟲館、沙漠動物區、
+      溫帶動物區、澳洲動物區、熊貓館、熱帶雨林區、臺灣動物區、
+      非洲動物區、鳥園</b><br><br>
+      </font>
+      
+      <font>
+      匯入這些資料作為後面查詢動物資訊使用，以下為企鵝館資料表內容，
+      其他資料表的結構都相同
+      </font> <br><br>
+      
+      <img src="./圖片/資料表企鵝館.JPG"width="600"> <br><br><br>
+      
+      
+      <br><br><hr size="8px" align="center" width="100%"><br>
+        
+      <font size="5">
+      <b>board</b><br><br>
+      </font>  
+
+      <font> 存放瀏覽者輸入的內容 </font>
+      <br><br><img src="./圖片/board.PNG"width="600"></div>
+</center>
+</div>
+
+
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="6">資料表欄位名稱及結構屬性</a></div><br>
+<div class="border"><font size="5">
+      <b> tb_account </b><br><br>
+     </font>
+      
+     <font>
+     <b>欄位名稱 </b> <br> id:編號 <br> username & password:學號  
+     </font> <br><br>
+     <img src="./圖片/1225.jpg"width="600"> <br><br>
+     
+     <font>
+     <b>編碼 </b> <br> utf8_general_ci
+     </font> <br><br> 
+     
+     <img src="./圖片/tbform.JPG"width="600"> <br>   
+      
+     <br><br><hr size="8px" align="center" width="100%"><br>
+
+     <font size="5">
+      <b> 企鵝館、兩棲爬蟲動物館、可愛動物區、昆蟲館、沙漠動物區、
+      溫帶動物區、澳洲動物區、熊貓館、熱帶雨林區、臺灣動物區、
+      非洲動物區、鳥園 </b><br><br>
+     </font>      
+
+     <font>
+     <b>欄位名稱</b> <br> 以下為查詢動物資料會用到的欄位 <br> Name_Ch:動物名稱 A_Distribution:出沒地 A_Habitat:棲息地分布 A_Feature:特徵 A_Behavior:習性  
+     </font> <br><br>
+     <img src="./圖片/999.PNG"width="600"> <br><br>
+     
+     <font>
+     <b>編碼 </b> <br> utf8_general_ci
+     </font> <br><br> 
+     
+     <img src="./圖片/002.jpg"width="600"> <br>      
+      
+     <br><br><hr size="8px" align="center" width="100%"><br>
+
+     <font size="5">
+      <b> board </b><br><br>
+     </font>      
+
+     <font>
+     <b>欄位名稱</b> <br> 以下為留言板會用到的欄位 <br> id:編號 StudentID:學號 content:內容 date:日期  
+     </font> <br><br>
+     <img src="./圖片/B1.PNG"width="600"> <br><br>
+     
+     <font>
+     <b>編碼</b> <br> utf8_general_ci	 <br><br>  <b>型態</b> <br> id為順序變數所以每新增一筆資料編碼都會自動+1，int是用來儲存整數型態 <br> date因為式日期格式所以用datetime
+     </font> <br><br> 
+     
+     <img src="./圖片/B2.PNG"width="600"> <br></div>
+</center>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!-----------------------------------------------------程式撰寫說明---------------------------------------------------->
+<div class="divbackground">
+<center><div class="c1">
+<font face="微軟正黑體" size="6"><b> 程式撰寫說明 </b></font>
+</div></center><br><br>
+</div>
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="7">登入頁面 <br> index.php、link.php、check.php</a></div><br>
+<div class="border"><!--index.php-->
+<center> <font size="6" face="monospace ">  <b>  index.php <br> 建立登入的介面 </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 說明  </td>
+　</tr>
+
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/index.PNG"width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> cookie用來紀錄使用者的資訊<br> 發送名稱為info的cookie 接著再透過$_COOKIE取得剛剛info的値</font> </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/index2.PNG"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 屬於html的部分 <br> 做出標題及帳號密碼的表單，表單連結check.php語法 </font> </td>
+　</tr>
+
+</table></center>
+
+
+<hr size="8px" align="center" width="100%">
+
+
+<!--link.php-->
+<center> <font size="6" face="monospace ">  <b>  link.php <br> 主要是新增資料表以及學號  </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 說明  </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> <img src="./圖片/86.PNG"width="600"> 
+　</td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 連接資料庫 <br> 如果連結失敗在頁面就會顯示"無法建立資料連接" </font> </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/link1.PNG"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 建立"tb_account"資料表<br>放班上所有人的學號<br>表格裡的變數有id username passwd</font> </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/link2.PNG"width="600"><br><img src="./圖片/link2-2.PNG"width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 新增班上每個同學的學號(這裡列舉15筆)，再將每個人的學號串聯變成$str變數，最後把$str呼叫出來，方便看有沒有新增成功 </font> </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/link3.PNG"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 使用函數去查詢，如果新增成功會顯示"帳密連結完畢" </font>     </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/link4.PNG"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 釋放記憶體 </font> </td>
+　</tr>
+
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/link5.PNG"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 關閉連結 </font> </td>
+　</tr>
+
+</table></center>
+
+
+<hr size="8px" align="center" width="100%">
+
+
+<!--check.php-->
+<center> <font size="6" face="monospace ">  <b>  check.php <br> 主要是檢查帳密輸入是否有誤以及正確會連到新頁面(主網站)  </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 說明  </td>
+　</tr>
+
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/check.PNG"width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> isset函式判斷變數$_POST["username"]、$_POST["passwd"]有沒有取得數值 </font> </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/check2.PNG"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 1.連結資料庫<br>2.建立查詢語句<br>3.使用函數查詢</font> </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/check3.PNG"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 檢查輸入的帳號密碼是否正確 <br> 如果正確的話就會連到我們主網頁 <br> 帳號密碼只要輸入有誤將導回當前頁面 </font> </td>
+　</tr>
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/check4.PNG"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 釋放記憶體 <br> 關閉資料庫 </font>     </td>
+　</tr>
+
+</table></center></div>
+</center>
+</div>
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="8">動物園網站 G08-zoo.html</a></div><br>
+<div class="border"><center> <font size="6" face="monospace ">  <b>  動物園介紹的頁面  </b> </font> </center>
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　</tr>
+
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/R1.jpg"width="600"></td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/R2.jpg"width="600"> </td>
+　</tr>
+　
+　<tr bgcolor="white">
+　<td> <img src="./圖片/R3.jpg"width="600"></td>
+　</tr>
+　
+　<tr bgcolor="white">
+　<td> <img src="./圖片/R4.jpg"width="600"></td>
+　</tr>
+　
+　<tr bgcolor="white">
+　<td> <img src="./圖片/R5.jpg"width="600"></td>
+　</tr>
+　
+　<tr bgcolor="white">
+　<td> <img src="./圖片/R6.jpg"width="600"></td>
+　</tr>
+　
+　<tr bgcolor="white">
+　<td> <img src="./圖片/R7.jpg"width="600"></td>
+　</tr>
+</table></center></div>
+</center>
+</div>
+
+
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="9">動物園查詢網(動物選單) <br> Menu.php、Menufind.php、MenuTable.php</a></div><br>
+<div class="border"><!--Menu.php-->
+<center> <font size="6" face="monospace ">  <b>  Menu.php <br> 查詢動物的介面  </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n4.jpg"width="600"> </td>
+　</tr>
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n3.jpg"width="600"> </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n2.jpg"width="600"> </td>
+　</tr>
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/n1.jpg"width="600"></td>
+　</tr>
+
+
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n5.jpg"width="600"> </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n6.jpg"width="600"> </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n7.jpg"width="600"> </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n8.jpg"width="600"> </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/n9.jpg"width="600"> </td>
+　</tr>
+</table></center>
+
+
+
+<hr size="8px" align="center" width="100%">
+
+
+
+<!--Menufind.php-->
+<center> <font size="6" face="monospace ">  <b> Menufind.php </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　</tr>
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/f1.jpg" width="600"></td>
+　</tr>
+
+</table></center>
+
+
+
+<hr size="8px" align="center" width="100%">
+
+
+
+<!--MenuTable.php-->
+<center> <font size="6" face="monospace ">  <b>  MenuTable.php </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　</tr>
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/t1.jpg" width="600"></td>
+　</tr>
+
+</table></center>
+
+        </div></center></div>
+</center>
+</div>
+
+
+
+
+
+
+
+<div class="divbackground">
+<center>
+<div class="c1"><a name="10">留言板 <br> message_board.php、post.php、dbtools.inc.php</a></div><br>
+<div class="border"><!--message_board.php-->
+<center> <font size="6" face="monospace ">  <b> message_board.php </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 說明  </td>
+　</tr>
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/m.jpg" width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> html css style美編的部分 </font> </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/m1.jpg" width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 屬於html的部分 <br> 做出輸入學號及內容的表單</font> </td>
+　</tr>
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/m2.jpg" width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 判斷輸入情形 </font> </td>
+　</tr>
+
+　
+　<tr bgcolor="white">
+　<td> <img src="./圖片/m8.jpg" width="600"><br><img src="./圖片/m9.PNG" width="600"><br><img src="./圖片/m10.PNG"width="600"><br><img src="./圖片/m11.PNG" width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 使用php語法，首先連接dbtools.inc.php </font> </td>
+　</tr>
+</table></center>
+
+
+<hr size="8px" align="center" width="100%">
+
+
+<!--post.php-->
+<center> <font size="6" face="monospace ">  <b> post.php </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 說明  </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/po.jpg"width="600"> </td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 建立資料連接<br>執行SQL查詢<br>關閉資料連接</font> </td>
+　</tr>
+
+　<tr bgcolor="white">
+　<td> <img src="./圖片/po1.PNG"width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 將網頁重新導回message_board.php </font> </td>
+　</tr>
+
+</table></center>
+
+
+<hr size="8px" align="center" width="100%">
+
+
+<!--dbtools.inc.php-->
+<center> <font size="6" face="monospace ">  <b> dbtools.inc.php </b> </font> </center>	 
+
+<center><table width="600" style="border:2px #E1E1E1 solid; padding:5px; margin:5px 5px 5px 5px;" rules="all" cellpadding='15';> 
+
+　<tr bgcolor="#F5F5F5">
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 程式碼 </td>
+　<td style="text-align: center; line-height:36px; vertical-align: middle; font-size:16px;"> 說明  </td>
+　</tr>
+
+
+  <tr bgcolor="white">
+　<td> <img src="./圖片/dbtool.jpg"width="600"></td>
+　<td style="font-size:16px;"> <font color="midnightblue"> 連結後端的資料庫，如果沒連接成功會顯示"開啟資料庫失敗" </font> </td>
+　</tr>
+
+
+</table></center></div>
+</center>
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+<!-- CSS程式碼 -->
+
+<style>
+.divbackground{
+width:80%;
+height:100%; 
+float:right;
+}
+/*菜單子頁樣式*/
+.menu_list {
+width:20%;
+height:100%;
+position: fixed;
+left: 0;
+float:left;
+margin:5px;
+bottom:0;
+font-size:19px;
+text-align:center;
+line-height:100px;
+font-weight:bold;
+font-family:微軟正黑體;
+}
+/*菜單主頁樣式*/
+.menu_head {
+height: 80px;
+padding-left: 60px;
+font-size: 19px;
+cursor: pointer;
+border: 1px solid #f1f1f1;
+position: relative;
+margin: 0px;
+font-weight: bold;
+background: #51a9f18c;
+border-radius :15px;
+opacity:0.8;
+width: 300px;
+}
+
+/*左側菜單點他變色*/
+.menu_list .current {
+background: #CCEEFF;
+opacity:0.9;
+
+
+}
+
+
+/*菜單選向內容樣式*/
+.menu_nva {
+line-height: 38px;
+border-left: 1px solid #51a9f18c;
+
+border-right: 1px solid #51a9f18c;
+}
+
+.menu_nva a {
+display: block;  /*換行*/
+height:auto;
+color: #777777;
+text-decoration: none;
+border-bottom: 1px solid #51a9f18c;
+background: #efefef;
+border: 2px solid;
+ border-radius :30px;
+font: inherit;
+letter-spacing: inherit;
+padding: 1em 2em;
+text-transform: inherit;
+transition: color 1s;
+
+}
+
+
+
+.menu_nva a:hover {
+
+}
+
+.c1 {
+width:40%;
+text-align:center;
+padding:5px;
+border:0px solid #666;
+border-radius: 18px 18px 18px 18px;
+background:rgba(255,255,180,0.8);
+margin:5px;
+}
+
+.border {
+width:70%;
+padding:12px;
+border:2px solid #666;
+border-radius: 18px 18px 18px 18px;
+background:rgba(255,255,255,0.72)
+}
+
+body{
+margin:0px;
+padding:0px;
+background:#fff url("./圖片/SKY.jpg") center fixed;
+background-size: 100% auto ; 
+} 
+
+p {
+  position:relative;
+  top:-29px;
+  left:-29px;
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- html  start-->
+<div class="divbackground">
+<div id="firstpaneDiv" class="menu_list">
+<h3 class="menu_head current  " style="text-align:center;"><p>網頁架構介紹</p></h3>
+<div style="display:none " class="menu_nva">
+<a href="#1">網頁架構設計圖</a>
+<a href="#2">架構說明</a>
+
+</div>
+<h3 class="menu_head"><p>資料庫介紹</p></h3>
+<div style="display:none" class="menu_nva">
+<a href="#3">建立資料表</a>
+<a href="#4">資料表</a>
+<a href="#5">資料表用途</a>
+<a href="#6">資料表欄位名稱及結構屬性</a>
+
+</div>
+<h3 class="menu_head"><p>程式撰寫說明</p></h3>
+<div style="display:none" class="menu_nva">
+<a href="#7">登入頁面<br>index.php、link.php、check.php</a>
+<a href="#8">動物園網站<br>G08-zoo.html</a>
+<a href="#9">動物園查詢網(動物選單)<br>Menu.php、Menufind.php、MenuTable.php</a>
+<a href="#10">留言板<br>message_board.php、post.php、dbtools.inc.php</a>
+</div>
+
+
+<!-- html  end-->
+
+
+<!-- script  程式碼-->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#firstpaneDiv .menu_nva:eq(0)").show();
+$("#firstpaneDiv h3.menu_head").click(function(){
+$(this).addClass("current").next("div.menu_nva").slideToggle(200).siblings("div.menu_nva").slideUp("slow");
+$(this).siblings().removeClass("current");
+});
+$("#secondpane .menu_nva:eq(0)").show();
+$("#secondpane h3.menu_head").mouseover(function(){
+$(this).addClass("current").next("div.menu_nva").slideDown(400).siblings("div.menu_nva").slideUp("slow");
+$(this).siblings().removeClass("current");
+});
+});
+</script>
+</body>
+</html>
